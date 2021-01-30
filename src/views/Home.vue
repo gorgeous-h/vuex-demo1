@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+    {{this.$store.getters.doneTodos[0].text}}
+    <br/>
+    {{this.$store.getters.doneTodosCount}}
+    <br/>
+    {{this.$store.getters.getTodoById(2).text}}
     <counter></counter>
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
