@@ -10,6 +10,9 @@ export default new Vuex.Store({
       {id: 1, text: 'study', done: true},
       {id: 2, text: 'housework', done: false},
     ],
+    people: {
+        name: '张三',
+    },
   },
   getters: {
     doneTodos: state => {
@@ -25,6 +28,12 @@ export default new Vuex.Store({
   mutations: {
     increment(state) {
       state.count++
+    },
+    // incrementBy(state, n) {
+    //   state.count += n
+    // },
+    incrementBy(state, payload) {
+        state.count += payload.amount
     },
   },
   actions: {

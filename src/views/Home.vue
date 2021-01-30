@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    {{this.$store.state.people}} <button @click="addAge">添加年龄</button>
+    <br/>
     {{this.$store.getters.doneTodos[0].text}}
     <br/>
     {{this.$store.getters.doneTodosCount}}
@@ -21,6 +23,11 @@ export default {
   components: {
     HelloWorld,
     Counter,
-  }
+  },
+  methods: {
+    addAge() {
+      this.$store.state.people = {...this.$store.state.people, age: 20}
+    },
+  },
 }
 </script>

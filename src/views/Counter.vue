@@ -1,17 +1,20 @@
 <template>
     <div>
         <button @click="increment">加一</button> {{count}}
+        <button @click="add">加一</button> {{count}}
         <!--<br/>-->
         <!--{{countAlias}}-->
         <!--<br/>-->
         <!--{{countPlusLocalState}}-->
-        <br/>
-        {{localComputed}}
+        <!--<br/>-->
+        <!--{{localComputed}}-->
+        <!--<br/>-->
+        <!--<button @click="incrementBy">加三</button> {{count}}-->
     </div>
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+    import {mapState, mapMutations} from 'vuex'
 
     export default {
         name: "Counter",
@@ -39,10 +42,22 @@
             },
             ...mapState(['count']),
         },
+        // methods: {
+        //     increment() {
+        //         this.$store.commit('increment')
+        //     },
+        //     incrementBy() {
+        //         // this.$store.commit('incrementBy', 3)
+        //         // this.$store.commit('incrementBy', {amount: 3})
+        //         this.$store.commit({type: 'incrementBy', amount: 10})
+        //     }
+        // }
+        // methods: mapMutations(['increment'])
         methods: {
-            increment() {
-                this.$store.commit('increment')
-            }
+            ...mapMutations(['increment']),
+            ...mapMutations({
+                add: 'increment'
+            })
         }
     }
 </script>
