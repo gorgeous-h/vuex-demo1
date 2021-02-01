@@ -23,6 +23,16 @@ const routes = [
     name: 'Counter',
     component: () => import('../views/Counter.vue')
   },
+  {
+    path: '/counter2',
+    name: 'Counter2',
+    component: () => import('../views/Counter2.vue')
+  },
+  {
+    path: '/asynchronous',
+    name: 'Asynchronous',
+    component: () => import('../views/Asynchronous.vue')
+  },
 ]
 
 const router = new VueRouter({
