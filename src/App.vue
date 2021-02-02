@@ -5,7 +5,8 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/counter">Counter</router-link> |
       <router-link to="/counter2">Counter2</router-link> |
-      <router-link to="/asynchronous">Asynchronous</router-link>
+      <router-link to="/asynchronous">Asynchronous</router-link> |
+      <router-link to="/modulesDemo">ModulesDemo</router-link>
     </div>
     <router-view/>
   </div>

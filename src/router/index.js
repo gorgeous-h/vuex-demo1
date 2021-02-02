@@ -33,6 +33,11 @@ const routes = [
     name: 'Asynchronous',
     component: () => import('../views/Asynchronous.vue')
   },
+  {
+    path: '/modulesDemo',
+    name: 'ModulesDemo',
+    component: () => import('../views/ModulesDemo.vue')
+  },
 ]
 
 const router = new VueRouter({

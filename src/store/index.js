@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+// import axios from 'axios'
+import moduleA from './modules/moduleA'
+import moduleB from './modules/moduleB'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB,
+  },
   state: {
-    count: 0,
+    count: 1,
     todos: [
       {id: 1, text: 'study', done: true},
       {id: 2, text: 'housework', done: false},
@@ -55,37 +61,35 @@ export default new Vuex.Store({
     // increment(context) {
     //   context.commit('increment')
     // },
-    increment({commit}) {
-      commit('increment')
-    },
-    incrementAsync({ commit }, payload) {
-      setTimeout(() => {
-        commit('incrementBy', payload)
-      }, 1000)
-    },
-    actionA ({commit}) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          commit('increment')
-          resolve()
-        }, 1000)
-      })
-    },
-    actionB({dispatch, commit}) {
-      return dispatch('actionA').then(() => {
-        commit('incrementBy', {amount: 10})
-      })
-    },
-    async actionC({commit}, payload) {
-      let career = await axios.get(`http://192.168.3.117:8001/insurance/career/getCareerById/${payload.id}`);
-      commit('getCareerById', career.data.data.career)
-    },
-    async actionD({dispatch, commit}, payload) {
-      await dispatch('actionC', {id: 1})
-      let certificateType = await axios.get(`http://192.168.3.117:8001/insurance/certificate-type/getCertificateTypeById/${payload.id}`);
-      commit('getCertificateType', certificateType.data.data.certificateType)
-    },
+    // increment({commit}) {
+    //   commit('increment')
+    // },
+    // incrementAsync({ commit }, payload) {
+    //   setTimeout(() => {
+    //     commit('incrementBy', payload)
+    //   }, 1000)
+    // },
+    // actionA ({commit}) {
+    //   return new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       commit('increment')
+    //       resolve()
+    //     }, 1000)
+    //   })
+    // },
+    // actionB({dispatch, commit}) {
+    //   return dispatch('actionA').then(() => {
+    //     commit('incrementBy', {amount: 10})
+    //   })
+    // },
+    // async actionC({commit}, payload) {
+    //   let career = await axios.get(`http://192.168.3.117:8001/insurance/career/getCareerById/${payload.id}`);
+    //   commit('getCareerById', career.data.data.career)
+    // },
+    // async actionD({dispatch, commit}, payload) {
+    //   await dispatch('actionC', {id: 1})
+    //   let certificateType = await axios.get(`http://192.168.3.117:8001/insurance/certificate-type/getCertificateTypeById/${payload.id}`);
+    //   commit('getCertificateType', certificateType.data.data.certificateType)
+    // },
   },
-  modules: {
-  }
 })
